@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简介 - 李明</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a8c0ff, #3f2b96);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 2.5em;
+        }
+
+        .position {
+            color: #3f2b96;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            color: white;
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .experience-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem 3rem;
+            margin-top: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item {
+            padding: 1.5rem;
+            border-left: 3px solid #3f2b96;
+            margin-left: 1rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #3f2b96;
+            border-radius: 50%;
+            position: absolute;
+            left: -8px;
+            top: 24px;
+        }
+
+        .company {
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .timeline-desc {
+            padding-left: 1.5rem;
+            color: #666;
+        }
+
+        .timeline-desc li {
+            margin: 0.8rem 0;
+        }
+
+        /* 作品集样式 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0), rgba(63,43,150,0.9));
+            color: white;
+            width: 100%;
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .experience-section {
+                padding: 1.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        .social-links a {
+            color: #3f2b96;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #a8c0ff;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: #f0f0f0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #3f2b96;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .profile-card {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <img src="avatar.jpg" alt="李明" class="avatar">
+            <h1>李明</h1>
+            <p class="position">全栈开发工程师</p>
+            
+            <p class="bio">
+                拥有5年全栈开发经验的技术专家，专注于构建高性能Web应用。
+                精通现代JavaScript生态，对用户体验和代码质量有极致追求。
+                热爱技术分享，持续关注前沿技术发展。
+            </p>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="far fa-envelope"></i></a>
+            </div>
+
+            <div class="skills">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Docker</span>
+            </div>
+        </div>
+    </div>
+        <div class="experience-section">
+            <h2 class="section-title">工作经历</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>高级全栈工程师</h3>
+                        <p class="company">云科技公司 · 2020 - 至今</p>
+                    </div>
+                    <ul class="timeline-desc">
+                        <li>主导开发日均百万级访问量的电商平台</li>
+                        <li>实现前后端性能优化，响应速度提升40%</li>
+                        <li>搭建微服务架构和CI/CD流程</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>前端开发工程师</h3>
+                        <p class="company">创新软件 · 2017 - 2020</p>
+                    </div>
+                    <ul class="timeline-desc">
+                        <li>开发企业级后台管理系统</li>
+                        <li>设计组件库提升团队开发效率</li>
+                        <li>实现多平台响应式适配方案</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新增作品集部分 -->
+        <div class="portfolio-section">
+            <h2 class="section-title">项目作品</h2>
+            
+            <div class="gallery">
+                <div class="portfolio-item">
+                    <img src="project1.jpg" alt="电商平台">
+                    <div class="portfolio-overlay">
+                        <h4>电商系统重构</h4>
+                        <p>React + Node.js + MongoDB</p>
+                    </div>
+                </div>
+</body>
+</html>
